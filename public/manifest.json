@@ -1,0 +1,27 @@
+{
+  "name": "chrome-extension-react",
+  "version": "1.0",
+  "description": "chrome-extension-react",
+  "manifest_version": 3,
+  "icons": {
+    "16": "images/icon-16.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "background": {
+    "service_worker": "scripts/background.js",
+    "type": "module"
+  },
+  "permissions": ["tabs", "storage"],
+  "action": {
+    "default_icon": "images/icon-16.png",
+    "default_popup": "index.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "css": ["static/index.css"],
+      "js": ["static/index.js"]
+    }
+  ]
+}
